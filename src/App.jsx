@@ -5,9 +5,6 @@ import Movies from 'pages/Movies/Movies';
 import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
-  {
-    getMoviesList().then(console.log);
-  }
   return (
     <Routes>
       <Route path="/" element={<LayOut />}>
