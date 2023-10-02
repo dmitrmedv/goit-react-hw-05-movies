@@ -22,7 +22,7 @@ const TrendingList = () => {
       {list.map(({ id, title, name }) => {
         return (
           <li key={id}>
-            <Link to={`movies/${id}`} state={location}>
+            <Link to={`movies/${id}`} state={{ from: location }}>
               {title || name}
             </Link>
           </li>

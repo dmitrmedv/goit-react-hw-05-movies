@@ -7,12 +7,12 @@ const MovieInfo = () => {
       <p>Additional information</p>
       <ul>
         <li>
-          <Link to="cast" state={{ from: location }}>
+          <Link to="cast" state={location}>
             Cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: location }}>
+          <Link to="reviews" state={location}>
             Reviews
           </Link>
         </li>

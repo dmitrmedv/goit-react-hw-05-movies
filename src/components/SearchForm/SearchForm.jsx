@@ -4,7 +4,7 @@ const SearchForm = ({ getMovie }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function handlerChange({ target: { value } }) {
-    setSearchParams({ search: value });
+    value ? setSearchParams({ search: value }) : setSearchParams({});
   }
 
   const query = searchParams.get('search');

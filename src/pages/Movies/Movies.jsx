@@ -7,7 +7,6 @@ const Movies = () => {
   const [name, setName] = useState('');
   const [list, setList] = useState(null);
   const location = useLocation();
-  console.log('location', location);
 
   const [searchParams] = useSearchParams();
   const query = searchParams.get('search');

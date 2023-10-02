@@ -1,6 +1,6 @@
 import { getMovieById } from 'api/api';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const Card = () => {
@@ -8,7 +8,7 @@ const Card = () => {
   const [movie, setMovie] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log('location Card', location);
+  const locationForBack = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     getMovieById(id)
@@ -17,7 +17,7 @@ const Card = () => {
   }, [id]);
 
   function handleBack() {
-    navigate(location.state);
+    navigate(locationForBack.current);
   }
 
   return (
