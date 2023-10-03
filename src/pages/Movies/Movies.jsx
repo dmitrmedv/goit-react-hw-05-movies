@@ -2,6 +2,7 @@ import { getMovieByName } from 'api/api';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import './movies.css';
 
 const Movies = () => {
   const [name, setName] = useState('');
@@ -45,9 +46,16 @@ const Movies = () => {
     list &&
     list.map(({ id, original_title }) => {
       return (
-        <Link to={`${id}`} key={id} state={{ from: location }}>
-          <li>{original_title}</li>
-        </Link>
+        <li>
+          <Link
+            to={`${id}`}
+            key={id}
+            state={{ from: location }}
+            className="item"
+          >
+            {original_title}
+          </Link>
+        </li>
       );
     });
   function getMovie(value) {
@@ -55,10 +63,10 @@ const Movies = () => {
   }
 
   return (
-    <>
+    <div className="container movies">
       <SearchForm getMovie={getMovie} />
-      <ul>{list && resultList}</ul>
-    </>
+      <ol className="search_list">{list && resultList}</ol>
+    </div>
   );
 };
 

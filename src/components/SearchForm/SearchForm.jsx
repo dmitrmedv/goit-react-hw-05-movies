@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import './searchForm.css';
 
 const SearchForm = ({ getMovie }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,7 +17,7 @@ const SearchForm = ({ getMovie }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="search_form">
       <input type="text" onChange={handlerChange} value={query || ''} />
       <button type="submit">search</button>
     </form>

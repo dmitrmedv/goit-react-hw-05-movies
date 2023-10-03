@@ -2,6 +2,7 @@ import { getMovieById } from 'api/api';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import './card.css';
 
 const Card = () => {
   const { id } = useParams();
@@ -22,13 +23,15 @@ const Card = () => {
 
   return (
     <>
-      <div>
+      <div className="movie_card container">
         <button onClick={handleBack}>Go back</button>
-        <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt="{movie.title || movie.name}"
-          />
+        <div className="wrapper_card">
+          <div className="poster_box">
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt="{movie.title || movie.name}"
+            />
+          </div>
           <div>
             <p>{movie.title || movie.name}</p>
             <p>User Score: {Math.round(movie.vote_average)}%</p>
