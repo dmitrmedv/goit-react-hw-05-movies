@@ -1,11 +1,12 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import './movieInfo.css';
 
 const MovieInfo = () => {
   const location = useLocation();
   return (
-    <div>
+    <div className="container movie_info">
       <p>Additional information</p>
-      <ul>
+      <ul className="movie_info_list">
         <li>
           <Link to="cast" state={location}>
             Cast

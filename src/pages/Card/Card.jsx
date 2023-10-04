@@ -23,22 +23,32 @@ const Card = () => {
 
   return (
     <>
+      {/* {console.log(movie)} */}
       <div className="movie_card container">
-        <button onClick={handleBack}>Go back</button>
+        <button onClick={handleBack} className="btn_back">
+          Go back
+        </button>
         <div className="wrapper_card">
           <div className="poster_box">
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              alt="{movie.title || movie.name}"
+              alt={movie.title || movie.name}
+              width={400}
             />
           </div>
-          <div>
-            <p>{movie.title || movie.name}</p>
-            <p>User Score: {Math.round(movie.vote_average)}%</p>
+          <div className="description">
+            <p className="title_movie">{movie.title || movie.name}</p>
+            <p>User Score: {movie.vote_average * 10}%</p>
             <p>Overview</p>
             <p>{movie.overview}</p>
             <p>Genres</p>
-            <p>XXX</p>
+            <p>
+              {/* {console.log(movie.genres)}; */}
+              {movie.genres &&
+                movie.genres.map(({ id, name }) => (
+                  <span key={id}>{name} </span>
+                ))}
+            </p>
           </div>
         </div>
       </div>
