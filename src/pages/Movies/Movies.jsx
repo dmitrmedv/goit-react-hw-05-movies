@@ -7,6 +7,7 @@ import './movies.css';
 const Movies = () => {
   const [name, setName] = useState('');
   const [list, setList] = useState(null);
+  const [notFound, setNotFound] = useState(false);
   const location = useLocation();
 
   const [searchParams] = useSearchParams();
@@ -16,7 +17,12 @@ const Movies = () => {
     const fetchName = async () => {
       try {
         const result = await getMovieByName(name);
-        setList(result.results);
+        if (result.results.length < 1) {
+          setNotFound(true);
+        } else {
+          setList(result.results);
+          setNotFound(false);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -46,13 +52,8 @@ const Movies = () => {
     list &&
     list.map(({ id, original_title }) => {
       return (
-        <li>
-          <Link
-            to={`${id}`}
-            key={id}
-            state={{ from: location }}
-            className="item"
-          >
+        <li key={id}>
+          <Link to={`${id}`} state={{ from: location }} className="item">
             {original_title}
           </Link>
         </li>
@@ -65,7 +66,8 @@ const Movies = () => {
   return (
     <div className="container movies">
       <SearchForm getMovie={getMovie} />
-      <ol className="search_list">{list && resultList}</ol>
+      {notFound && <h2>Nothing found...</h2>}
+      {!notFound && <ol className="search_list">{list && resultList}</ol>}
     </div>
   );
 };

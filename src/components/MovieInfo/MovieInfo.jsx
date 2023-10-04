@@ -4,7 +4,7 @@ import './movieInfo.css';
 const MovieInfo = () => {
   const location = useLocation();
   return (
-    <div className="container movie_info">
+    <div className="movie_info">
       <p>Additional information</p>
       <ul className="movie_info_list">
         <li>

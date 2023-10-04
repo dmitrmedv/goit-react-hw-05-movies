@@ -23,7 +23,6 @@ const Card = () => {
 
   return (
     <>
-      {/* {console.log(movie)} */}
       <div className="movie_card container">
         <button onClick={handleBack} className="btn_back">
           Go back
@@ -38,12 +37,11 @@ const Card = () => {
           </div>
           <div className="description">
             <p className="title_movie">{movie.title || movie.name}</p>
-            <p>User Score: {movie.vote_average * 10}%</p>
+            <p>User Score: {(movie.vote_average * 10).toFixed(0)}%</p>
             <p>Overview</p>
             <p>{movie.overview}</p>
             <p>Genres</p>
             <p>
-              {/* {console.log(movie.genres)}; */}
               {movie.genres &&
                 movie.genres.map(({ id, name }) => (
                   <span key={id}>{name} </span>
