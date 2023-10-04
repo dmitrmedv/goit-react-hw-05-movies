@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/664.4b5ef549.chunk.css","mappings":"AAAA,aAGE,qBAAsB,CADtB,gBAAiB,CADjB,WAGF","sources":["pages/Cast/cast.css"],"sourcesContent":[".profile_img {\n  width: 200px;\n  min-height: 200px;\n  background-color: gray;\n}\n"],"names":[],"sourceRoot":""}
